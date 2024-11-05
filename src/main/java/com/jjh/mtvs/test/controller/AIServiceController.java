@@ -29,6 +29,7 @@ public class AIServiceController {
             @RequestParam("image") MultipartFile image,
             @RequestParam("userId") long userId) {
         EmotionRequestDTO dto = new EmotionRequestDTO(image, userId);
+        System.out.println("요청옴");
         return aiService.sendEmotion(dto)
                 .thenApply(ResponseEntity::ok);
     }
@@ -39,6 +40,7 @@ public class AIServiceController {
             @RequestParam("modelNumber") Integer petMeshNumber,
             @RequestParam("userId") long userId) {
         TextureRequestDTO dto = new TextureRequestDTO(image, petMeshNumber, userId);
+        System.out.println("요청옴");
         return aiService.sendTexture(dto);
     }
 }
