@@ -1,6 +1,6 @@
 package com.jjh.mtvs.app.presentation.dto.response;
 
-import com.jjh.mtvs.app.presentation.dto.ObjectDto;
+import com.jjh.mtvs.app.presentation.dto.common.ObjectDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 

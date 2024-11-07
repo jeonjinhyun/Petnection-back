@@ -9,14 +9,12 @@ import com.jjh.mtvs.app.domain.model.community.vo.CommunityRoomAuthority;
 import com.jjh.mtvs.app.domain.model.user.entity.CommunityFavorite;
 import com.jjh.mtvs.app.domain.repository.CommunityFavoriteRepository;
 import com.jjh.mtvs.app.domain.repository.CommunityRoomRepository;
-import com.jjh.mtvs.app.presentation.dto.request.CommunityRequestDto;
+import com.jjh.mtvs.app.presentation.dto.request.community.CommunityRequestDTO;
 import com.jjh.mtvs.app.presentation.dto.response.CommunityResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -61,7 +59,7 @@ public class CommunityRoomServiceImpl implements CommunityRoomService {
     }
 
     @Override
-    public Boolean createCommunityRoom(CommunityRequestDto dto) {
+    public Boolean createCommunityRoom(CommunityRequestDTO dto) {
         try {
             CommunityRoom communityRoom = communityRoomMapper.toCommunityRoom(dto);
             dto.getObjectDtos().stream()

@@ -6,7 +6,7 @@ import com.jjh.mtvs.app.domain.model.community.entity.CommunityRoom;
 import com.jjh.mtvs.app.domain.model.myroom.entity.MyRoom;
 import com.jjh.mtvs.app.domain.model.object.entity.Object;
 import com.jjh.mtvs.app.domain.repository.ObjectRepository;
-import com.jjh.mtvs.app.presentation.dto.ObjectDto;
+import com.jjh.mtvs.app.presentation.dto.common.ObjectDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

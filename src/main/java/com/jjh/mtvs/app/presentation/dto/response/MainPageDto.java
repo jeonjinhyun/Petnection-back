@@ -1,6 +1,6 @@
 package com.jjh.mtvs.app.presentation.dto.response;
 
-import com.jjh.mtvs.app.presentation.dto.UserDto;
+import com.jjh.mtvs.app.presentation.dto.common.UserDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;

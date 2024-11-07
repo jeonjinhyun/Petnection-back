@@ -6,7 +6,7 @@ import com.jjh.mtvs.app.domain.model.community.entity.Comment;
 import com.jjh.mtvs.app.domain.model.community.entity.Post;
 import com.jjh.mtvs.app.domain.repository.CommentRepository;
 import com.jjh.mtvs.app.domain.repository.PostRepository;
-import com.jjh.mtvs.app.presentation.dto.request.CommentRequestDto;
+import com.jjh.mtvs.app.presentation.dto.request.community.CommentRequestDTO;
 import com.jjh.mtvs.app.presentation.dto.response.CommentResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     @Transactional
-    public Long addComment(CommentRequestDto dto) {
+    public Long addComment(CommentRequestDTO dto) {
         try {
             Post post = postRepository.findById(dto.getPostId())
                     .orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));

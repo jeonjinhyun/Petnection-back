@@ -1,7 +1,7 @@
 package com.jjh.mtvs.app.application.serviceimpl;
 
 import com.jjh.mtvs.app.application.service.PetAiTextureService;
-import com.jjh.mtvs.app.presentation.dto.request.PetCreateDto;
+import com.jjh.mtvs.app.presentation.dto.request.user.PetTextureCreateRequestDTO;
 import com.jjh.mtvs.common.util.file.FileUploadService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
@@ -26,7 +26,7 @@ public class PetAiTextureServiceImpl implements PetAiTextureService {
 
     @Override
     @Async
-    public CompletableFuture<String> createPetModel(PetCreateDto dto) {
+    public CompletableFuture<String> createPetModel(PetTextureCreateRequestDTO dto) {
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.MULTIPART_FORM_DATA);

@@ -1,7 +1,7 @@
 package com.jjh.mtvs.app.application.mapper;
 
 import com.jjh.mtvs.app.domain.model.myroom.entity.Gallery;
-import com.jjh.mtvs.app.presentation.dto.request.GalleryRequestDto;
+import com.jjh.mtvs.app.presentation.dto.request.myroom.GalleryRequestDTO;
 import com.jjh.mtvs.app.presentation.dto.response.GalleryResponseDto;
 import org.mapstruct.Mapper;
 
@@ -9,5 +9,5 @@ import org.mapstruct.Mapper;
 public interface GalleryMapper {
     GalleryResponseDto toGalleryResponseDto(Gallery gallery);
 
-    Gallery toGallery(GalleryRequestDto dto);
+    Gallery toGallery(GalleryRequestDTO dto);
 }

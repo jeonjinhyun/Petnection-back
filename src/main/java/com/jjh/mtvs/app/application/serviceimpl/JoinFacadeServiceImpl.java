@@ -7,7 +7,7 @@ import com.jjh.mtvs.common.util.file.FileUploadService;
 import com.jjh.mtvs.app.domain.model.user.entity.Pet;
 import com.jjh.mtvs.app.domain.model.user.entity.User;
 import com.jjh.mtvs.app.domain.repository.UserRepository;
-import com.jjh.mtvs.app.presentation.dto.request.JoinUserDto;
+import com.jjh.mtvs.app.presentation.dto.request.auth.SignupRequestDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,15 +23,15 @@ public class JoinFacadeServiceImpl implements JoinFacadeService {
 
     @Override
     @Transactional
-    public Boolean join(JoinUserDto joinUserDto) {
+    public Boolean join(SignupRequestDTO signupRequestDTO) {
         try {
             // 1. User 저장
-            User user = userMapper.toUser(joinUserDto.getUserRequestDto());
-            user.setImgUrl(fileUploadService.uploadFile(joinUserDto.getUserRequestDto().getImgFile()));
+            User user = userMapper.toUser(signupRequestDTO.getUserCreateRequestDTO());
+            user.setImgUrl(fileUploadService.uploadFile(signupRequestDTO.getUserCreateRequestDTO().getImgFile()));
             user = userRepository.save(user);
 
             // 2. Pet 생성 및 연결 
-            Pet pet = petMapper.toPet(joinUserDto.getPetRequestDto());
+            Pet pet = petMapper.toPet(signupRequestDTO.getPetCreateRequestDto());
             user.setPet(pet);
             return true;
         } catch (Exception e) {

@@ -7,7 +7,7 @@ import com.jjh.mtvs.app.domain.model.community.entity.CommunityRoom;
 import com.jjh.mtvs.app.domain.model.community.entity.Post;
 import com.jjh.mtvs.app.domain.repository.CommunityRoomRepository;
 import com.jjh.mtvs.app.domain.repository.PostRepository;
-import com.jjh.mtvs.app.presentation.dto.request.PostRequestDto;
+import com.jjh.mtvs.app.presentation.dto.request.community.PostRequestDTO;
 import com.jjh.mtvs.app.presentation.dto.response.PostResponseDto;
 import com.jjh.mtvs.app.presentation.dto.response.UserResponseDto;
 import com.jjh.mtvs.common.util.file.FileUploadService;
@@ -28,7 +28,7 @@ public class PostServiceImpl implements PostService {
     private final UserQueryService userQueryService;
 
     @Override
-    public Boolean createPost(PostRequestDto dto) {
+    public Boolean createPost(PostRequestDTO dto) {
         try{
             CommunityRoom communityRoom = communityRoomRepository.findById(dto.getCommunityRoomId())
                     .orElseThrow(()->new RuntimeException("커뮤니티룸을 찾는데 실패했습니다."));

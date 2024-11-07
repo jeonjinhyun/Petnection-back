@@ -2,12 +2,11 @@ package com.jjh.mtvs.app.application.serviceimpl;
 
 import com.jjh.mtvs.app.application.mapper.UserMapper;
 import com.jjh.mtvs.app.application.service.MyRoomService;
-import com.jjh.mtvs.app.application.service.PetAiTextureService;
 import com.jjh.mtvs.app.application.service.PetService;
 import com.jjh.mtvs.app.application.service.UserQueryService;
 import com.jjh.mtvs.app.domain.model.user.entity.User;
 import com.jjh.mtvs.app.domain.repository.UserRepository;
-import com.jjh.mtvs.app.presentation.dto.UserDto;
+import com.jjh.mtvs.app.presentation.dto.common.UserDto;
 import com.jjh.mtvs.app.presentation.dto.response.UserResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

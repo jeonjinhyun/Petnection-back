@@ -11,8 +11,8 @@ import com.jjh.mtvs.app.domain.model.user.entity.User;
 import com.jjh.mtvs.app.domain.repository.GalleryImageRepository;
 import com.jjh.mtvs.app.domain.repository.GalleryRepository;
 import com.jjh.mtvs.app.domain.repository.UserRepository;
-import com.jjh.mtvs.app.presentation.dto.request.GalleryImageRequestDto;
-import com.jjh.mtvs.app.presentation.dto.request.GalleryRequestDto;
+import com.jjh.mtvs.app.presentation.dto.request.myroom.GalleryImageRequestDTO;
+import com.jjh.mtvs.app.presentation.dto.request.myroom.GalleryRequestDTO;
 import com.jjh.mtvs.app.presentation.dto.response.GalleryResponseDto;
 import com.jjh.mtvs.common.util.file.FileUploadService;
 import lombok.RequiredArgsConstructor;
@@ -48,14 +48,14 @@ public class GalleryServiceImpl implements GalleryService {
 
     @Override
     @Transactional
-    public Boolean createGallery(GalleryRequestDto dto) {
+    public Boolean createGallery(GalleryRequestDTO dto) {
         try {
             // 기본 갤러리 정보 매핑
             Gallery gallery = galleryMapper.toGallery(dto);
             User user = userQueryService.getUser(dto.getUserId());
             // 이미지 파일들이 있다면 처리
-            if (dto.getGalleryImageRequestDtos() != null && !dto.getGalleryImageRequestDtos().isEmpty()) {
-                for (GalleryImageRequestDto imageDto : dto.getGalleryImageRequestDtos()) {
+            if (dto.getGalleryImageRequestDTOS() != null && !dto.getGalleryImageRequestDTOS().isEmpty()) {
+                for (GalleryImageRequestDTO imageDto : dto.getGalleryImageRequestDTOS()) {
                     if (imageDto.getImgFile() != null) {
                         // 파일 업로드 및 URL 받기
                         String imageUrl = fileService.uploadFile(imageDto.getImgFile());
@@ -91,14 +91,14 @@ public class GalleryServiceImpl implements GalleryService {
 
     @Override
     @Transactional
-    public Boolean updateGalleryImages(GalleryRequestDto galleryRequestDto) {
+    public Boolean updateGalleryImages(GalleryRequestDTO galleryRequestDto) {
         try {
             Gallery gallery = galleryRepository.findById(galleryRequestDto.getUserId())
                     .orElseThrow(()->new RuntimeException("갤러리를 찾는데 실패했습니다."));
 
-            List<GalleryImageRequestDto>  galleryImageRequestDtos = galleryRequestDto.getGalleryImageRequestDtos();
+            List<GalleryImageRequestDTO> galleryImageRequestDTOS = galleryRequestDto.getGalleryImageRequestDTOS();
 
-            for(GalleryImageRequestDto dto : galleryImageRequestDtos ){
+            for(GalleryImageRequestDTO dto : galleryImageRequestDTOS){
                 if(dto.getId()!=null){
                     gallery.removeImageById(dto.getId());
                     galleryImageRepository.deleteById(dto.getId());
