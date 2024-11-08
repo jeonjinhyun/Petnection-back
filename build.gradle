@@ -47,7 +47,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 
-	implementation 'org.springframework:spring-test'  // MockMultipartFile이 포함된 라이브러리
+	// MockMultipartFile이 포함된 라이브러리
+	implementation 'org.springframework:spring-test'
 }
 
 dependencyManagement {
