@@ -1,6 +1,7 @@
 package com.jjh.mtvs.application.mapper;
 
 import com.jjh.mtvs.domain.model.user.entity.User;
+import com.jjh.mtvs.domain.model.user.entity.UserProfile;
 import com.jjh.mtvs.presentation.dto.request.user.UserCreateRequestDTO;
 import com.jjh.mtvs.presentation.dto.response.user.UserProfileResponseDTO;
 import org.mapstruct.Mapper;
@@ -15,5 +16,5 @@ public interface UserMapper {
     @Mapping(target = "profile", ignore = true)
     User toUser(UserCreateRequestDTO dto);
 
-    UserProfileResponseDTO toUserResponseDto(User user);
+    UserProfileResponseDTO toUserProfileResponseDto(UserProfile profile);
 }

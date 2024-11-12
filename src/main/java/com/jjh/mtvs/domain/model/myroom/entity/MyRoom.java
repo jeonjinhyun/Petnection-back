@@ -16,14 +16,16 @@ import java.util.List;
 @Table(name = "tbl_my_room")
 public class MyRoom {
     @Id
-    @Column(name = "my_room_id")
+    @Column(name = "user_id")
+    @Setter
     private Long id;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "object_id")
+    @JoinColumn(name = "my_room_id")
     private List<Object> objects = new ArrayList<>();
 
     public void setObjects(List<Object> objects) {
+        this.objects.clear();
         this.objects.addAll(objects);
     }
 }

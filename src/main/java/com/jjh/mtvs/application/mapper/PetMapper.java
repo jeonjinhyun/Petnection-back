@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface PetMapper {
-    @Mapping(target = "user", ignore = true)
+    @Mapping(target = "id", ignore = true)
     Pet toPet(PetDTO dto);
 
     PetDTO toPetDTO(Pet pet);

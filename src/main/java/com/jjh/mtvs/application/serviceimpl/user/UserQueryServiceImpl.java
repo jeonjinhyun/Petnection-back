@@ -19,7 +19,7 @@ public class UserQueryServiceImpl implements UserQueryService {
     @Override
     public UserProfileResponseDTO getUserProfileResponseDTO(Long userId) {
         User user = userRepository.findById(userId).orElseThrow(()->new RuntimeException("유저를 찾는데 실패했습니다."));
-        return userMapper.toUserResponseDto(user);
+        return userMapper.toUserProfileResponseDto(user.getProfile());
     }
 
 

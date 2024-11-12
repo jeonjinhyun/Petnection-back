@@ -16,6 +16,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @NoArgsConstructor
+@Setter
 @Table(name = "tbl_community_room")
 public class CommunityRoom {
     @Id
@@ -23,7 +24,7 @@ public class CommunityRoom {
     @Column(name = "community_room_id")
     private Long id;
 
-    @Column(name = "community_room_name", nullable = false)
+    @Column(name = "community_room_name")
     private String name;
 
     @Column(name = "community_room_img_url")
@@ -37,13 +38,13 @@ public class CommunityRoom {
     private CommunityRoomAuthority communityRoomAuthority;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "community_room_id")
     private List<Post> posts = new ArrayList<>();
 
     @Column(name = "community_room_creator_id", nullable = false)
     private Long creatorId;
 
-    @Column(name = "community_room_created_at", nullable = false)
+    @Column(name = "community_room_created_at")
     private LocalDateTime createdAt;
 
     @Setter
@@ -51,7 +52,7 @@ public class CommunityRoom {
     private Boolean isFavorite;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "object_id")
+    @JoinColumn(name = "community_room_id")
     private List<Object> objects = new ArrayList<>();
 
     public void incrementFavoriteCount() {
@@ -70,6 +71,10 @@ public class CommunityRoom {
 
     public void addCommunityObject(Object object){
         this.objects.add(object);
+    }
+    public void setObjects(List<Object> objects) {
+        this.objects.clear();
+        this.objects.addAll(objects);
     }
 
 }

@@ -7,7 +7,5 @@ import com.jjh.mtvs.domain.model.object.entity.Object;
 import java.util.List;
 
 public interface ObjectRepository {
-    List<Object> findByCommunityRoom(CommunityRoom communityRoom);
 
-    List<Object> findByMyRoom(MyRoom myRoom);
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "tbl_post")
 public class Post {
@@ -37,7 +38,7 @@ public class Post {
     private String imgUrl;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "comment_id")
+    @JoinColumn(name = "post_id")
     private List<Comment> comments = new ArrayList<>();
 
     @Column(name = "created_at", nullable = false)

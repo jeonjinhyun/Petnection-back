@@ -18,8 +18,7 @@ public class UserProfile {
     @Column(name = "user_img_url")
     private String imgUrl;
 
-    public UserProfile(String name, String imgUrl) {
+    public UserProfile(String name) {
         this.name = name;
-        this.imgUrl = imgUrl;
     }
 }

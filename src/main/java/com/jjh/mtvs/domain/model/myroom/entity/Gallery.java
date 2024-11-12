@@ -12,18 +12,20 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor
+@Setter
 @Table(name = "tbl_gallery")
 public class Gallery {
     @Id
-    @Column(name = "gallery_id")
+    @Column(name = "user_id")
+    @Setter
     private Long id;
 
-
+    @Setter
     @Column(name = "gallery_name")
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "gallery_image_id")
+    @JoinColumn(name = "gallery_id")
     private List<GalleryImage> images = new ArrayList<>();
 
 

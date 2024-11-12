@@ -5,14 +5,18 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @NoArgsConstructor
+@ToString
+@Setter
 @Table(name = "tbl_pet")
 public class Pet {
     @Id
-    @Column(name = "pet_id")
+    @Setter
+    @Column(name = "user_id")
     private Long id;
 
     @Enumerated(EnumType.STRING)
@@ -60,6 +64,26 @@ public class Pet {
 
     @Column(name = "pet_body_thin")
     private Float bodyThin;
+
+    public Pet(Long id, PetType type, String name, Long modelId, Boolean isFarewelled, String textureUrl, String eyeColors, String noseColors, Integer feature1, Integer feature2, Integer feature3, Float tailLength, Float tailThickness, Float headFat, Float headThin, Float bodyThin, Float bodyFat) {
+        this.id = id;
+        this.type = type;
+        this.name = name;
+        this.modelId = modelId;
+        this.isFarewelled = isFarewelled;
+        this.textureUrl = textureUrl;
+        this.eyeColors = eyeColors;
+        this.noseColors = noseColors;
+        this.feature1 = feature1;
+        this.feature2 = feature2;
+        this.feature3 = feature3;
+        this.tailLength = tailLength;
+        this.tailThickness = tailThickness;
+        this.headFat = headFat;
+        this.headThin = headThin;
+        this.bodyThin = bodyThin;
+        this.bodyFat = bodyFat;
+    }
 
     @Column(name = "pet_body_fat")
     private Float bodyFat;

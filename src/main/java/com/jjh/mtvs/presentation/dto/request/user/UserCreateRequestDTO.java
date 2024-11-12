@@ -12,6 +12,6 @@ public class UserCreateRequestDTO {
     @Schema(description = "사용자 이름", example = "홍길동")
     private String name;
 
-    @Schema(description = "이미지 파일", type = "string", format = "binary")
+    @Schema(description = "사용자 이미지", type = "string", format = "binary")
     private MultipartFile imgFile;
 }

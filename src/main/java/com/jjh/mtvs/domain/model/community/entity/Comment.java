@@ -3,11 +3,13 @@ package com.jjh.mtvs.domain.model.community.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "tbl_comment")
 public class Comment {

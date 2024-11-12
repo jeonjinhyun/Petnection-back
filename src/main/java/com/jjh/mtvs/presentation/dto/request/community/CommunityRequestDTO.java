@@ -11,12 +11,11 @@ import java.util.List;
 @Data
 @Schema(description = "커뮤니티 요청 DTO")
 public class CommunityRequestDTO {
+    private Long creatorId;
+
     @Schema(description = "커뮤니티 이름", example = "우리 동네 모임")
     private String name;
 
     @Schema(description = "이미지 파일", type = "string", format = "binary")
     private MultipartFile imgFile;
-
-    @Schema(description = "오브젝트 목록")
-    private List<ObjectDto> objectDtos;
 }

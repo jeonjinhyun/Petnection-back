@@ -18,18 +18,7 @@ public interface MyRoomMapper {
     @Mapping(target = "objectDtos", source = "objects")
     MyRoomDto toMyRoomDto(MyRoom myRoom);
 
+    @Mapping(target = "id", ignore = true)  // ID는 업데이트하지 않음
     @Mapping(target = "objects", source = "objectDtos")
-    MyRoom toMyRoom(MyRoomDto dto);
-
-    @AfterMapping
-    default void setMyRoomReference(@MappingTarget MyRoom myRoom, MyRoomDto dto) {
-        if (dto.getObjectDtos() != null) {
-            dto.getObjectDtos().stream()
-                    .map(this::toObject)
-                    .forEach(myRoom::addObject);
-        }
-    }
-
-    Object toObject(ObjectDto objectDto);
-
+    void updateMyRoomFromDto(MyRoomDto dto, @MappingTarget MyRoom myRoom);
 }

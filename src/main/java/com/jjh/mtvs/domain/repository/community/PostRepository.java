@@ -1,5 +1,6 @@
 package com.jjh.mtvs.domain.repository.community;
 
+import aj.org.objectweb.asm.commons.Remapper;
 import com.jjh.mtvs.domain.model.community.entity.Post;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,8 +12,5 @@ public interface PostRepository {
 
     void deleteById(Long id);
 
-    Page<Post> findByCommunityRoomId(Long communityRoomId, Pageable pageable);
-
     Optional<Post> findById(Long postId);
-
 }

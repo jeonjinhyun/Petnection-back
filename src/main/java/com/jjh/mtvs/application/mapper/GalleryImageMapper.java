@@ -9,8 +9,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface GalleryImageMapper {
-    GalleryImage toGalleryImage(GalleryImageRequestDTO dto);
     GalleryImageResponseDto toGalleryImageResponseDto(GalleryImage galleryImage);
-    List<GalleryImage> toGalleryImage(List<GalleryImageRequestDTO> galleryImageRequestDTOs);
     List<GalleryImageResponseDto> toGalleryImageResponseDto(List<GalleryImage> galleryImages);
 }

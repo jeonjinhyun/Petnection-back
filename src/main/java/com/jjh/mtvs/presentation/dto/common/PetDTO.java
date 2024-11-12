@@ -9,7 +9,7 @@ import lombok.Data;
 public class PetDTO {
 
     @Schema(description = "반려동물 타입", example = "DOG")
-    private PetType petType;
+    private PetType type;
 
     @Schema(description = "반려동물 이름", example = "멍멍이")
     private String name;

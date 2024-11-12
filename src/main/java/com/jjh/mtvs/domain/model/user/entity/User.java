@@ -10,6 +10,7 @@ import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "tbl_user")
 public class User {
@@ -23,7 +24,7 @@ public class User {
     @Column(name = "user_profile")
     private UserProfile profile;
 
-    @Column(name = "user_email", unique = true, nullable = false)
+    @Column(name = "user_email")
     private String email;
 
     @Column(name = "user_authority")
@@ -31,21 +32,37 @@ public class User {
     private UserRole authority;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "pet_id", referencedColumnName = "user_id")
+    @PrimaryKeyJoinColumn
     private Pet pet;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "my_room_id", referencedColumnName = "user_id")
+    @PrimaryKeyJoinColumn
     private MyRoom myRoom;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "gallery_id", referencedColumnName = "user_id")
+    @PrimaryKeyJoinColumn
     private Gallery gallery;
 
     public User(String email) {
         this.email = email;
-        this.pet = new Pet();
-        this.myRoom = new MyRoom();
-        this.gallery = new Gallery();
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+        if (pet != null) {
+            pet.setId(this.id);
+        }
+    }
+    public void setMyRoom(MyRoom myRoom) {
+        this.myRoom = myRoom;
+        if (myRoom != null) {
+            myRoom.setId(this.id);
+        }
+    }
+    public void setGallery(Gallery gallery) {
+        this.gallery = gallery;
+        if (gallery != null) {
+            gallery.setId(this.id);
+        }
     }
 }

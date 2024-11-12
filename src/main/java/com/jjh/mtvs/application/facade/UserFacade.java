@@ -9,10 +9,12 @@ import com.jjh.mtvs.domain.model.user.entity.UserProfile;
 import com.jjh.mtvs.domain.repository.user.UserRepository;
 import com.jjh.mtvs.presentation.dto.request.auth.SignupRequestDTO;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class UserFacade {
 
@@ -24,21 +26,27 @@ public class UserFacade {
     @Transactional
     public Boolean join(SignupRequestDTO signupRequestDTO) {
         try {
-            // 1. User 저장
-            User user = userMapper.toUser(signupRequestDTO.getUserCreateRequestDTO());
-            UserProfile userProfile = new UserProfile(
-                    signupRequestDTO.getUserCreateRequestDTO().getName(),
-                    fileUploadService.uploadFile(signupRequestDTO.getUserCreateRequestDTO().getImgFile())
-                    );
-            user.setProfile(userProfile);
-            user = userRepository.save(user);
+            User user = userRepository.findById(signupRequestDTO.getUserCreateRequestDTO().getId())
+                    .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
 
-            // 2. Pet 생성 및 연결 
-            Pet pet = petMapper.toPet(signupRequestDTO.getPetDto());
-            user.setPet(pet);
+            UserProfile userProfile = new UserProfile(signupRequestDTO.getUserCreateRequestDTO().getName());
+            if (signupRequestDTO.getUserCreateRequestDTO().getImgFile() != null) {
+                userProfile.setImgUrl(fileUploadService.uploadFile(signupRequestDTO.getUserCreateRequestDTO().getImgFile()));
+            }
+            user.setProfile(userProfile);
+            if (signupRequestDTO.getPetDto() != null) {
+                Pet pet = petMapper.toPet(signupRequestDTO.getPetDto());
+
+                pet.setId(user.getId());
+                user.setPet(pet);
+            }
+
+            userRepository.save(user);
+
             return true;
         } catch (Exception e) {
-            return false;
+            log.error("회원가입 중 오류 발생:", e);
+            throw new RuntimeException("회원가입 실패: " + e.getMessage(), e);
         }
     }
 }
