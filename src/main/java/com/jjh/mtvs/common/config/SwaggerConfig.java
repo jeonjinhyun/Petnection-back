@@ -6,9 +6,9 @@ import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+// SwaggerConfig.java
 @Configuration
 public class SwaggerConfig {
-
     @Bean
     public OpenAPI openAPI() {
         Info info = new Info()
@@ -17,12 +17,11 @@ public class SwaggerConfig {
                 .description("MTVS 프로젝트의 API 문서");
 
         Server server = new Server();
-        server.setUrl("http://125.132.216.190:9100");
-        server.setDescription("MTVS Server");
+        server.setUrl("http://localhost:9100");
+        server.setDescription("Local MTVS Server");
 
         return new OpenAPI()
                 .info(info)
                 .addServersItem(server);
     }
-
 }
