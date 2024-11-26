@@ -21,10 +21,10 @@ public class Post {
     private Long id;
 
 
-    @Column(name = "author_id", nullable = false)
+    @Column(name = "author_id")
     private Long authorId;
 
-    @Column(name = "author_name", nullable = false)
+    @Column(name = "author_name")
     private String authorName;
 
     @Column(name = "post_title", nullable = false)

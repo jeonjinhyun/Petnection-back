@@ -14,6 +14,9 @@ import lombok.Setter;
 public class Object {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "object_primary_id")
+    private Long primaryId;
+
     @Column(name = "object_id")
     private Long id;
 

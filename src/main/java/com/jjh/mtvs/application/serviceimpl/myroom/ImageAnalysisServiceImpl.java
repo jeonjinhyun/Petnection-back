@@ -27,6 +27,10 @@ public class ImageAnalysisServiceImpl implements ImageAnalysisService {
     @Override
     public String analyzeImage(MultipartFile multipartFile, Long userId) {
         try {
+            if (userId == null) {
+                throw new IllegalArgumentException("UserId cannot be null");
+            }
+
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
@@ -38,9 +42,10 @@ public class ImageAnalysisServiceImpl implements ImageAnalysisService {
                 }
             });
 
+            // userId를 String으로 명시적 변환
             String url = UriComponentsBuilder.fromHttpUrl(IMAGE_ANALYSIS_URL)
-                    .queryParam("user", userId)  // URL에 쿼리 파라미터로 추가
-                    .build()
+                    .queryParam("user", String.valueOf(userId))  // String.valueOf() 사용
+                    .build(false)  // false를 전달하여 인코딩 처리
                     .toUriString();
 
             HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);

@@ -3,6 +3,8 @@ package com.jjh.mtvs.presentation.dto.response.community;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 @Schema(description = "게시글 응답 DTO")
 public class PostResponseDto {
@@ -20,4 +22,6 @@ public class PostResponseDto {
 
     @Schema(description = "작성자 이름", example = "홍길동")
     private String authorName;
+
+    private LocalDateTime createdAt;
 }

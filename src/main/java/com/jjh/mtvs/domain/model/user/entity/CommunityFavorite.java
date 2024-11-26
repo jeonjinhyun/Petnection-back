@@ -32,7 +32,7 @@ public class CommunityFavorite {
     @JoinColumn(name = "community_room_id", nullable = false)
     private CommunityRoom communityRoom;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @PrePersist

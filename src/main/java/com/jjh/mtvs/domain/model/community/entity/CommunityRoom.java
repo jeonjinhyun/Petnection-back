@@ -41,7 +41,7 @@ public class CommunityRoom {
     @JoinColumn(name = "community_room_id")
     private List<Post> posts = new ArrayList<>();
 
-    @Column(name = "community_room_creator_id", nullable = false)
+    @Column(name = "community_room_creator_id")
     private Long creatorId;
 
     @Column(name = "community_room_created_at")
@@ -51,7 +51,7 @@ public class CommunityRoom {
     @Column(name = "community_room_is_favorite")
     private Boolean isFavorite;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "community_room_id")
     private List<Object> objects = new ArrayList<>();
 

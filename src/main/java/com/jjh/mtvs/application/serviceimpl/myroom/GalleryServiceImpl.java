@@ -16,6 +16,7 @@ import com.jjh.mtvs.common.util.file.FileUploadService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -57,7 +58,7 @@ public class GalleryServiceImpl implements GalleryService {
             // 기본 갤러리 정보 매핑
             Gallery gallery = galleryMapper.toGallery(dto);
             User user = userQueryService.getUser(dto.getUserId());
-
+            gallery.setId(user.getId());
             // 이미지 처리
             if (dto.getGalleryImages() != null && !dto.getGalleryImages().isEmpty()) {
                 for (GalleryImageRequestDTO imageDto : dto.getGalleryImages()) {

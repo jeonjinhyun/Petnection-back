@@ -4,6 +4,7 @@ import com.jjh.mtvs.presentation.dto.common.ObjectDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 @Data
 @Schema(description = "커뮤니티 응답 DTO")
@@ -13,6 +14,9 @@ public class CommunityResponseDto {
 
     @Schema(description = "커뮤니티 이름", example = "우리 동네 모임")
     private String name;
+
+    @Schema(description = "생성 시간")
+    private LocalDateTime createAt;
 
     @Schema(description = "작성자 이름", example = "홍길동")
     private String author;
