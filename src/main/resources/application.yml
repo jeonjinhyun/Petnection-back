@@ -12,6 +12,8 @@ server:
     connection-timeout: 20000
 
 spring:
+  application:
+    name: mtvs-application  # 애플리케이션 이름 추가
   config:
     import: optional:file:.env[.properties]
   profiles:
@@ -113,11 +115,16 @@ management:
       exposure:
         include: health,info,prometheus,metrics
   endpoint:
+    health:
+      show-details: always    # 상세한 헬스 체크 정보 표시
     prometheus:
-      enabled: true  # Prometheus 엔드포인트 활성화
+      enabled: true
   metrics:
     tags:
-      application: ${spring.application.name}
+      application: mtvs-application
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true    # HTTP 요청 히스토그램 활성화
 
 logging:
   level:

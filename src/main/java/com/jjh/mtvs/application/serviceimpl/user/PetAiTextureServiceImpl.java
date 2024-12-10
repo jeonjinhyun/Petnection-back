@@ -3,6 +3,7 @@ package com.jjh.mtvs.application.serviceimpl.user;
 import com.jjh.mtvs.application.service.user.PetAiTextureService;
 import com.jjh.mtvs.common.util.file.FileUploadService;
 import com.jjh.mtvs.presentation.dto.request.user.PetTextureCreateRequestDTO;
+import com.jjh.mtvs.presentation.dto.response.user.FurAnalysisResponseDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ByteArrayResource;
@@ -25,6 +26,8 @@ public class PetAiTextureServiceImpl implements PetAiTextureService {
 
     private final RestTemplate restTemplate;
     private final FileUploadService fileUploadService;
+
+    private final String aiServiceUrl = "http://221.163.19.142:55508/chatbot/index_of_fur_color";
 
     @Override
     @Async
@@ -97,6 +100,34 @@ public class PetAiTextureServiceImpl implements PetAiTextureService {
         } catch (Exception e) {
             log.error("Error creating pet model: ", e);
             return CompletableFuture.failedFuture(new RuntimeException("Error creating pet model", e));
+        }
+    }
+
+    @Override
+    public FurAnalysisResponseDTO analyzeFurColor(MultipartFile image) {
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+
+            MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
+            body.add("image", image.getResource());
+
+            HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
+
+            log.info("Sending request to AI service for fur analysis");
+            ResponseEntity<FurAnalysisResponseDTO> response = restTemplate.exchange(
+                    aiServiceUrl,
+                    HttpMethod.POST,
+                    requestEntity,
+                    FurAnalysisResponseDTO.class
+            );
+
+            log.info("Received response from AI service: {}", response.getBody());
+            return response.getBody();
+
+        } catch (Exception e) {
+            log.error("Error analyzing fur color:", e);
+            throw new RuntimeException("Failed to analyze fur color", e);
         }
     }
 }

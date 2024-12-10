@@ -1,6 +1,7 @@
 package com.jjh.mtvs.application.serviceimpl.user;
 
 import com.jjh.mtvs.application.mapper.UserAuthMapper;
+import com.jjh.mtvs.application.service.common.MetricsService;
 import com.jjh.mtvs.application.service.user.UserAuthService;
 import com.jjh.mtvs.domain.model.myroom.entity.Gallery;
 import com.jjh.mtvs.domain.model.myroom.entity.MyRoom;
@@ -19,6 +20,7 @@ public class UserAuthServiceImpl implements UserAuthService {
 
     private final UserRepository userRepository;
     private final UserAuthMapper userAuthMapper;
+    private final MetricsService metricsService;
 
     @Override
     @Transactional
@@ -30,6 +32,10 @@ public class UserAuthServiceImpl implements UserAuthService {
 
         LoginResponseDTO response = userAuthMapper.toLoginResponseDto(user);
         response.setIsNewMember(!isExistingUser);
+
+        if(!isExistingUser) {
+            metricsService.incrementSignupCounter();
+        }
 
         return response;
     }
