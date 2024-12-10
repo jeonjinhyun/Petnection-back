@@ -36,15 +36,6 @@ out/
 ### VS Code ###
 .vscode/
 
-# Application properties
-src/main/resources/application.yml
-application.yml
-application-*.yml
-
-# Docker
-docker-compose.yml
-docker-compose.*.yml
-
 # Environment variables
 .env
 .env.*

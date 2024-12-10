@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty scope="context" name="application" source="spring.application.name" defaultValue="mtvs-application"/>
+
+    <!-- Console Appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Loki Appender -->
+    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+        <http>
+            <url>http://localhost:9105/loki/api/v1/push</url>
+        </http>
+        <format>
+            <label>
+                <pattern>app=${application},entity=object,logger=%logger{36}</pattern>
+            </label>
+            <message>
+                <pattern>ts=%d{yyyy-MM-dd HH:mm:ss} level=%level class=%logger{36} objectId="%X{objectId}" operation="%msg"</pattern>
+            </message>
+            <sortByTime>true</sortByTime>
+        </format>
+    </appender>
+
+    <!-- Object 관련 로거 -->
+    <logger name="com.jjh.mtvs.domain.model.object" level="INFO" additivity="false">
+        <appender-ref ref="LOKI"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="LOKI"/>
+    </root>
+</configuration>

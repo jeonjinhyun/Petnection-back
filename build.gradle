@@ -9,7 +9,7 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
+		languageVersion = JavaLanguageVersion.of(17)
 	}
 }
 
@@ -47,7 +47,18 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 
-	implementation 'org.springframework:spring-test'  // MockMultipartFile이 포함된 라이브러리
+	// MockMultipartFile이 포함된 라이브러리
+	implementation 'org.springframework:spring-test'
+
+	// Monitoring & Logging
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'  // 메트릭스 수집을 위한 actuator
+	implementation 'io.micrometer:micrometer-registry-prometheus'          // Prometheus 메트릭스
+	implementation 'net.logstash.logback:logstash-logback-encoder:7.4'    // Logstash 로깅
+	implementation 'com.github.loki4j:loki-logback-appender:1.5.0'        // Loki 로깅
+	implementation 'io.micrometer:micrometer-core'                        // 메트릭스 코어
+
+	// AOP (메트릭스 수집에 필요)
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
 }
 
 dependencyManagement {
