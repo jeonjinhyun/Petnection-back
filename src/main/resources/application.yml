@@ -89,7 +89,7 @@ spring:
               - RewritePath=/ai/image, /SD15/gen_image
               - name: RequestSize
                 args:
-                  maxSize: 10MB
+                  maxSize: 50MB
             metadata:
               connect-timeout: 120000
               response-timeout: 120000

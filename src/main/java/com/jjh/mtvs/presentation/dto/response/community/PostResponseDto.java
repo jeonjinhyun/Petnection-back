@@ -1,9 +1,9 @@
 package com.jjh.mtvs.presentation.dto.response.community;
 
+import java.time.LocalDateTime;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-
-import java.time.LocalDateTime;
 
 @Data
 @Schema(description = "게시글 응답 DTO")
