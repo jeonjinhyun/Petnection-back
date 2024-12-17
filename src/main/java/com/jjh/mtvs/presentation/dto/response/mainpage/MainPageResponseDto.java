@@ -18,6 +18,9 @@ public class MainPageResponseDto {
     @Schema(description = "반려동물 정보")
     private PetDTO petDTO;
 
+    @Schema(description = "반려동물 이미지")
+    private String petImg;
+
     @Schema(description = "마이룸 정보")
     private MyRoomDto myRoomDto;
 

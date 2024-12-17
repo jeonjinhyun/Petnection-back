@@ -22,7 +22,7 @@ public class FileController {
     @Operation(summary = "파일 업로드", description = "파일을 업로드합니다.")
     public ResponseEntity<String> uploadFile(
             @Parameter(description = "업로드할 파일", required = true)
-            @ModelAttribute("file") MultipartFile file) {
+            @RequestParam("file") MultipartFile file) {
         try {
             String fileUrl = minioService.uploadFile(file);
             return ResponseEntity.ok(fileUrl);
