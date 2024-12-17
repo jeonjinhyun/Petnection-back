@@ -40,7 +40,7 @@ public class CommunityRoomController {
     @GetMapping("/favorites/{userId}")
     public ResponseEntity<Page<CommunityResponseDto>> getFavorites(
             @PathVariable Long userId,
-            @PageableDefault(page = 0, size = 9, sort = "shortAt", direction = Sort.Direction.DESC) Pageable pageable) {
+            @PageableDefault(page = 0, size = 9, sort = "createAt", direction = Sort.Direction.DESC) Pageable pageable) {
         return ResponseEntity.ok(communityRoomService.getFavorites(userId, pageable));
     }
 

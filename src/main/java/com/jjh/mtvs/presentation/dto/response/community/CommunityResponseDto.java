@@ -1,5 +1,6 @@
 package com.jjh.mtvs.presentation.dto.response.community;
 
+import com.jjh.mtvs.domain.model.community.entity.CommunityRoom;
 import com.jjh.mtvs.presentation.dto.common.ObjectDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -16,7 +17,7 @@ public class CommunityResponseDto {
     private String name;
 
     @Schema(description = "생성 시간")
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 
     @Schema(description = "작성자 이름", example = "홍길동")
     private String author;
