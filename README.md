@@ -32,9 +32,9 @@
 
 - **커뮤니티룸 컨텐츠** : 추억앨범,커뮤니티,굿즈 생성기기능
 
-<img width="300" alt="4" src="https://github.com/user-attachments/assets/5620f662-a386-42c0-beb5-8023475eb01d">
-<img width="400" alt="4" src="https://github.com/user-attachments/assets/ebe2fb51-2f37-4faf-bfb3-0ad99d21cd22">
-<img width="400" alt="4" src="https://github.com/user-attachments/assets/1acb7496-f14d-410e-a39b-234cfc361791">
+<img width="300" alt="5" src="https://github.com/user-attachments/assets/5620f662-a386-42c0-beb5-8023475eb01d">
+<img width="300" alt="5" src="https://github.com/user-attachments/assets/ebe2fb51-2f37-4faf-bfb3-0ad99d21cd22">
+<img width="300" alt="5" src="https://github.com/user-attachments/assets/1acb7496-f14d-410e-a39b-234cfc361791">
 
 - **PC/모바일** : 기기제한,다운로드없이 PC와 모바일로 접근가능한 소셜 네트워크 서비스
 
