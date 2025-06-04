@@ -87,7 +87,7 @@ Infrastructure Layer (Repository, External APIs)
 
 #### 3. **MyRoom** 도메인
 - **기능**: 개인 가상 공간, 룸 꾸미기, 반려동물 활동
-- **주요 엔티티**: MyRoom
+- **주요 엔티티**: MyRoom,Gallery
 - **특징**: 나만의 메타버스 공간에서 반려동물과 상호작용
 
 #### 4. **Object** 도메인
