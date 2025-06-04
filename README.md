@@ -52,11 +52,12 @@
 ### 기술 스택
 - **Framework**: Spring Boot
 - **Architecture**: Monolithic Layered Architecture
-- **Database**: PostgreSQL/MySQL
+- **Database**: MySQL
+- **ORM**: JPA
 - **Storage**: MinIO (이미지 저장)
-- **AI Integration**: External AI Server (REST API)
+- **AI Integration**: External AI Server
 - **Containerization**: Docker & Docker Compose
-- **Build Tool**: Gradle/Maven
+- **Build Tool**: Gradle
 
 ### 아키텍처 구조
 ```
@@ -122,17 +123,6 @@ Infrastructure Layer (Repository, External APIs)
 ### AI 서버 통신
 Infrastructure 레이어에서 AI 서버와 REST API 통신을 수행합니다.
 
-**주요 AI 기능:**
-- 반려동물 행동 분석
-- 추천 시스템 (친구, 아이템)
-- 자연어 처리 (커뮤니티 게시글)
-- 이미지 분석 (반려동물 사진)
-
-### MinIO 스토리지
-- **사용처**: 반려동물 사진, 사용자 프로필 이미지, 룸 스크린샷
-- **구조**: 도메인별 버킷 분리
-- **보안**: 접근 권한 관리 및 이미지 압축
-
 ## 프로젝트 구조
 
 ```
@@ -166,140 +156,3 @@ src/main/java/com/petnection/
     └── config/          # Configuration
 ```
 
-## Docker 환경 구성
-
-### docker-compose.yml
-```yaml
-version: '3.8'
-services:
-  petnection-backend:
-    build: .
-    ports:
-      - "8080:8080"
-    depends_on:
-      - database
-      - minio
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      
-  database:
-    image: postgres:14
-    environment:
-      POSTGRES_DB: petnection
-      POSTGRES_USER: petnection
-      POSTGRES_PASSWORD: password
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      
-  minio:
-    image: minio/minio
-    ports:
-      - "9000:9000"
-      - "9090:9090"
-    environment:
-      MINIO_ROOT_USER: minioadmin
-      MINIO_ROOT_PASSWORD: minioadmin
-    command: server /data --console-address ":9090"
-    volumes:
-      - minio_data:/data
-
-volumes:
-  postgres_data:
-  minio_data:
-```
-
-## 개발 환경 설정
-
-### 1. 프로젝트 클론
-```bash
-git clone https://github.com/your-org/petnection-backend.git
-cd petnection-backend
-```
-
-### 2. Docker 환경 실행
-```bash
-docker-compose up -d
-```
-
-### 3. 애플리케이션 실행
-```bash
-./gradlew bootRun
-```
-
-### 4. API 테스트
-- **Swagger UI**: http://localhost:8080/swagger-ui.html
-- **MinIO Console**: http://localhost:9090
-
-## API 문서
-
-### 주요 엔드포인트
-
-#### Community API
-- `GET /api/community/posts` - 커뮤니티 게시글 목록
-- `POST /api/community/posts` - 게시글 작성
-- `POST /api/community/posts/{id}/like` - 좋아요
-
-#### Friend API
-- `GET /api/friends` - 친구 목록
-- `POST /api/friends/request` - 친구 요청
-- `PUT /api/friends/accept/{id}` - 친구 요청 수락
-
-#### MyRoom API
-- `GET /api/myroom` - 내 룸 정보
-- `PUT /api/myroom/decorate` - 룸 꾸미기
-- `POST /api/myroom/pet/activity` - 반려동물 활동 기록
-
-#### Object API
-- `GET /api/objects` - 아이템 목록
-- `POST /api/objects/purchase` - 아이템 구매
-- `GET /api/objects/inventory` - 보유 아이템
-
-#### User API
-- `GET /api/users/profile` - 사용자 프로필
-- `PUT /api/users/profile` - 프로필 수정
-- `POST /api/users/pets` - 반려동물 등록
-
-## 배포
-
-### 프로덕션 환경
-```bash
-# 이미지 빌드
-docker build -t petnection-backend:latest .
-
-# 프로덕션 실행
-docker-compose -f docker-compose.prod.yml up -d
-```
-
-### 환경 변수
-- `SPRING_PROFILES_ACTIVE`: 실행 환경 (dev, prod)
-- `DATABASE_URL`: 데이터베이스 연결 URL
-- `MINIO_ENDPOINT`: MinIO 서버 엔드포인트
-- `AI_SERVER_URL`: AI 서버 API URL
-
-## 개발 가이드라인
-
-### 코딩 컨벤션
-1. **패키지 구조**: 도메인별로 application/domain/infrastructure 분리
-2. **네이밍**: 도메인 용어 사용, 명확한 의미 전달
-3. **레이어 간 의존성**: 상위 레이어에서 하위 레이어로만 의존
-4. **외부 통신**: Infrastructure 레이어에서만 처리
-
-### 테스트 전략
-- **단위 테스트**: Domain Layer 중심
-- **통합 테스트**: API 엔드포인트
-- **외부 연동 테스트**: AI 서버, MinIO 연동
-
-## 기여하기
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 라이선스
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-🐾 **Happy coding with your virtual pets!** 🐾
