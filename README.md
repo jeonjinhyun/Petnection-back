@@ -24,7 +24,7 @@
 
 - **마이룸** : 나와 반려동물만의 교감공간
 
-<img width="1609" alt="스크린샷 2022-10-11 오후 8 13 01" src="https://github.com/user-attachments/assets/66d4391d-911e-430c-939a-1ef371ce2c67)">
+<img width="1609" alt="스크린샷 2022-10-11 오후 8 13 01" src="https://github.com/user-attachments/assets/66d4391d-911e-430c-939a-1ef371ce2c67">
 
 - **커뮤니티 룸** : 다른 유저와 소통하고 맵을 커스텀하고, 나만의 포토앨범을 만들어봐요
 
@@ -32,14 +32,14 @@
 
 - **커뮤니티룸 컨텐츠** : 추억앨범,커뮤니티,굿즈 생성기기능
 
-<img width="500" alt="6" src="https://github.com/user-attachments/assets/5620f662-a386-42c0-beb5-8023475eb01d">
-<img width="500" alt="6" src="https://github.com/user-attachments/assets/ebe2fb51-2f37-4faf-bfb3-0ad99d21cd22">
-<img width="500" alt="6" src="https://github.com/user-attachments/assets/1acb7496-f14d-410e-a39b-234cfc361791">
+<img width="400" alt="6" src="https://github.com/user-attachments/assets/5620f662-a386-42c0-beb5-8023475eb01d">
+<img width="400" alt="6" src="https://github.com/user-attachments/assets/ebe2fb51-2f37-4faf-bfb3-0ad99d21cd22">
+<img width="400" alt="6" src="https://github.com/user-attachments/assets/1acb7496-f14d-410e-a39b-234cfc361791">
 
 - **PC/모바일** : 기기제한,다운로드없이 PC와 모바일로 접근가능한 소셜 네트워크 서비스
 
-<img width="800" alt="스크린샷 2022-10-11 오후 8 14 25" src="https://github.com/user-attachments/assets/f4a33d8b-cb94-47e9-999a-ba5d808610f1">
-<img width="800" alt="스크린샷 2022-10-11 오후 8 14 25" src="https://github.com/user-attachments/assets/8a3f588f-b728-4b60-83fe-391e41b4a5e0">
+<img width="500" alt="스크린샷 2022-10-11 오후 8 14 25" src="https://github.com/user-attachments/assets/f4a33d8b-cb94-47e9-999a-ba5d808610f1">
+<img width="300" alt="스크린샷 2022-10-11 오후 8 14 25" src="https://github.com/user-attachments/assets/8a3f588f-b728-4b60-83fe-391e41b4a5e0">
 
 
 - **양식 검색** : 제목이나 태그를 통해 포트폴리오 검색
