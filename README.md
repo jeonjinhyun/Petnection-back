@@ -110,12 +110,12 @@ Infrastructure Layer (External(AI),Minio)
 
 - ### Application Layer
 - **Facade**: 여러 도메인에서 필요한 기능을 모아서 인터페이스로 제공
-- **Mapper**: Entity와 dto간의 자동 매
+- **Mapper**: Entity와 dto간의 자동 매핑
 - **Service**: 서비스 계층
 
 ### Domain Layer
 - **Entities**: 도메인 핵심 객체
-- **Repository**: Infra레이어의 repository 인터페이스
+- **Repository**: Infrastructure레이어의 repository 인터페이스
 
 ### Infrastructure Layer
 - **Repositories**: JPA인터페이스를 상속받는 Repository레이어
