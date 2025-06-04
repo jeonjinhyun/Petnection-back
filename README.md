@@ -77,7 +77,7 @@ Infrastructure Layer (Repository, External APIs)
 
 #### 1. **Community** 도메인
 - **기능**: 커뮤니티 게시글, 댓글, 반려동물 자랑하기
-- **주요 엔티티**: Post, Comment, Like, Share
+- **주요 엔티티**: Post, Comment, Like 
 - **특징**: 반려동물과의 추억을 다른 사용자들과 공유
 
 #### 2. **Friend** 도메인
@@ -87,12 +87,12 @@ Infrastructure Layer (Repository, External APIs)
 
 #### 3. **MyRoom** 도메인
 - **기능**: 개인 가상 공간, 룸 꾸미기, 반려동물 활동
-- **주요 엔티티**: Room, RoomItem, PetActivity
+- **주요 엔티티**: MyRoom
 - **특징**: 나만의 메타버스 공간에서 반려동물과 상호작용
 
 #### 4. **Object** 도메인
 - **기능**: 가상 아이템, 장식품, 반려동물 용품 관리
-- **주요 엔티티**: Item, ItemCategory, UserItem
+- **주요 엔티티**: Object
 - **특징**: 메타버스 공간을 꾸미는 다양한 오브젝트
 
 #### 5. **User** 도메인
