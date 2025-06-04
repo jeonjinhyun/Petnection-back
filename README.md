@@ -42,30 +42,7 @@
 <img width="300" alt="스크린샷 2022-10-11 오후 8 14 25" src="https://github.com/user-attachments/assets/8a3f588f-b728-4b60-83fe-391e41b4a5e0">
 
 
-- **양식 검색** : 제목이나 태그를 통해 포트폴리오 검색
 
-<img width="1646" alt="스크린샷 2022-10-11 오후 8 18 42" src="https://user-images.githubusercontent.com/72256238/195095832-7b0dd5ed-d1f7-4284-99c8-e9175c6b138b.png">
-
-
-- **채용공고 등록** : 필요한 채용 정보를 작성하여 공고를 등록 및 조회
-
-
-<img width="1662" alt="스크린샷 2022-10-11 오후 8 27 34" src="https://user-images.githubusercontent.com/72256238/195097578-829f2a4d-3175-4645-9203-65b94c69fe87.png">
-
-
-
-- **로그인/회원가입** : 학생(구직자)과 기업(구인자)의 유형에 따른 가입 분류로 데이터를 입력
-
-<img width="1438" alt="10" src="https://user-images.githubusercontent.com/72256238/195094451-5c9e2095-b991-4006-8f61-4bcbd667719e.png">
-
-<img width="1676" alt="스크린샷 2022-10-11 오후 8 23 06" src="https://user-images.githubusercontent.com/72256238/195094461-032427b3-8353-401a-8dc8-f0c915ee93f8.png">
-
-
-- **마이페이지** : 학생유저(유저정보, 좋아요 누른 포트폴리오, 자신의 포트폴리오 관리) | 기업유저(유저정보, 자신의 채용공고 관리)
-
-<img width="1624" alt="스크린샷 2022-10-11 오후 8 26 04" src="https://user-images.githubusercontent.com/72256238/195096843-7356cb91-1d54-4412-ac28-250205a80f9f.png">
-
-<img width="1680" alt="스크린샷 2022-10-11 오후 8 34 44" src="https://user-images.githubusercontent.com/72256238/195098620-8b70ff8c-7272-4b5c-bf9e-1228132027c6.png">
 
 
 <br/>
