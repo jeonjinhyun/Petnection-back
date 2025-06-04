@@ -12,7 +12,7 @@
 <br/>
 
 ## 🎞 Demo
-[시연영상](https://drive.google.com/file/d/1Nfws3nvCTwPNvBiqw7p1wuqK_kPV_0J4/view?usp=drive_link)
+[시연영상](https://drive.google.com/file/d/1Nfws3nvCTwPNvBiqw7p1wuqK_kPV_0J4/view?usp=drive_link)<br/>
 [PDF다운로드](https://drive.google.com/drive/folders/1OaxGK4_IwRO0C4N7InPWIAcKHZZWCOUc?usp=drive_link)
 
 <br/>
@@ -20,7 +20,7 @@
 ## ⭐ 주요 기능
 - **메인페이지** : 인기 포트폴리오, 전체 포트폴리오, 채용공고 제공
 
-<img width="1666" alt="스크린샷 2022-10-11 오후 8 10 43" src="https://user-images.githubusercontent.com/72256238/195093241-7030961b-5a34-4015-a83d-35b1f17aaa4a.png">
+<img width="1666" alt="스크린샷 2022-10-11 오후 8 10 43" src="https://github.com/user-attachments/assets/a26e54c7-7c38-4628-b490-75ef09ebfb3f">
 
 - **양식 선택** : 새 양식, 기본 포트폴리오 양식 선택
 
