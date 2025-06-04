@@ -61,11 +61,13 @@
 
 ### 아키텍처 구조
 ```
-Application Layer (Controllers, REST APIs)
+Presentation Layer (Controllers, Dtos)
          ↓
-Domain Layer (Business Logic, Services)
+Application Layer (Event,Facade,Mapper,Service)
          ↓
-Infrastructure Layer (Repository, External APIs)
+Domain Layer (Model,Repository)
+         ↓
+Infrastructure Layer (External(AI),Minio)
          ↓
 [Database] [MinIO] [AI Server]
 ```
@@ -102,57 +104,22 @@ Infrastructure Layer (Repository, External APIs)
 
 ## 레이어 상세 구조
 
-### Application Layer
+### Presentation Layer
 - **Controllers**: REST API 엔드포인트 제공
 - **DTOs**: 데이터 전송 객체
-- **Request/Response**: API 입출력 모델
+
+- ### Application Layer
+- **Facade**: 여러 도메인에서 필요한 기능을 모아서 인터페이스로 제공
+- **Mapper**: Entity와 dto간의 자동 매
+- **Service**: 서비스 계층
 
 ### Domain Layer
 - **Entities**: 도메인 핵심 객체
-- **Services**: 비즈니스 로직 처리
-- **Domain Events**: 도메인 이벤트 처리
+- **Repository**: Infra레이어의 repository 인터페이스
 
 ### Infrastructure Layer
-- **Repositories**: 데이터 액세스 레이어
+- **Repositories**: JPA인터페이스를 상속받는 Repository레이어
 - **External APIs**: AI 서버 통신
 - **File Storage**: MinIO 연동
 - **Configuration**: 외부 시스템 설정
-
-## 외부 시스템 연동
-
-### AI 서버 통신
-Infrastructure 레이어에서 AI 서버와 REST API 통신을 수행합니다.
-
-## 프로젝트 구조
-
-```
-src/main/java/com/petnection/
-├── application/           # Application Layer
-│   ├── community/
-│   │   ├── controller/   # REST Controllers
-│   │   └── dto/          # Data Transfer Objects
-│   ├── friend/
-│   ├── myroom/
-│   ├── object/
-│   └── user/
-├── domain/               # Domain Layer
-│   ├── community/
-│   │   ├── entity/       # Domain Entities
-│   │   ├── service/      # Domain Services
-│   │   └── event/        # Domain Events
-│   ├── friend/
-│   ├── myroom/
-│   ├── object/
-│   └── user/
-└── infrastructure/       # Infrastructure Layer
-    ├── community/
-    │   └── repository/   # Data Repositories
-    ├── friend/
-    ├── myroom/
-    ├── object/
-    ├── user/
-    ├── ai/              # AI Server Integration
-    ├── storage/         # MinIO Integration
-    └── config/          # Configuration
-```
 
