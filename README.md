@@ -47,58 +47,259 @@
 
 <br/>
 
-## 🔨 프로젝트 구조
-![아키텍처](https://firebasestorage.googleapis.com/v0/b/fir-readme-storage.appspot.com/o/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-06-02%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2011.19.37.png?alt=media&token=79093ff3-9c0a-40fd-8721-f0fa54625694)
+## 시스템 아키텍처
 
+### 기술 스택
+- **Framework**: Spring Boot
+- **Architecture**: Monolithic Layered Architecture
+- **Database**: PostgreSQL/MySQL
+- **Storage**: MinIO (이미지 저장)
+- **AI Integration**: External AI Server (REST API)
+- **Containerization**: Docker & Docker Compose
+- **Build Tool**: Gradle/Maven
 
-<img width="1811" alt="기능처리도" src="https://user-images.githubusercontent.com/72256238/195097998-4d672aa7-3ad3-4d62-9eee-1c4943c587df.png">
+### 아키텍처 구조
+```
+Application Layer (Controllers, REST APIs)
+         ↓
+Domain Layer (Business Logic, Services)
+         ↓
+Infrastructure Layer (Repository, External APIs)
+         ↓
+[Database] [MinIO] [AI Server]
+```
 
-<br/>
+## 도메인 구조
 
-## 🔧 Stack
+### 도메인 목록
+각 도메인은 Application-Domain-Infrastructure 3계층 구조로 구성됩니다.
 
-**Frontend(Web)**
-- **Language** : JavaScript, TypeScript
-- **Library & Framework** : React, Styled-Components, Axios, Recoil, React-Quill, React-Rnd, React-To-Pdf
-- **Deploy**: Netlify
-<br />
+#### 1. **Community** 도메인
+- **기능**: 커뮤니티 게시글, 댓글, 반려동물 자랑하기
+- **주요 엔티티**: Post, Comment, Like, Share
+- **특징**: 반려동물과의 추억을 다른 사용자들과 공유
 
-**Backend**
-- **Language** : Java 
-- **Library & Framework** : Spring Boot
-- **Database** : MySQLDB
-- **ORM** : JPA
-- **Deploy**: Heroku, Firebase(Storage)
+#### 2. **Friend** 도메인
+- **기능**: 친구 관계, 친구 요청, 친구 목록 관리
+- **주요 엔티티**: Friendship, FriendRequest
+- **특징**: 반려동물 친구들과의 네트워킹
 
-<br/>
+#### 3. **MyRoom** 도메인
+- **기능**: 개인 가상 공간, 룸 꾸미기, 반려동물 활동
+- **주요 엔티티**: Room, RoomItem, PetActivity
+- **특징**: 나만의 메타버스 공간에서 반려동물과 상호작용
 
-## 💡 기대효과
+#### 4. **Object** 도메인
+- **기능**: 가상 아이템, 장식품, 반려동물 용품 관리
+- **주요 엔티티**: Item, ItemCategory, UserItem
+- **특징**: 메타버스 공간을 꾸미는 다양한 오브젝트
 
-**자신이 만든 포트폴리오 양식을 웹 사이트에서 관리 및 공유를 할 수 있어 인터넷에 연결만 되어 있다면 언제 어디서든 디자인을 할 수 있다.**
+#### 5. **User** 도메인
+- **기능**: 사용자 관리, 반려동물 프로필, 인증
+- **주요 엔티티**: User, Pet, UserProfile
+- **특징**: 사용자와 반려동물 정보 통합 관리
 
-**드래그 앤 드롭 (DND) 기술과 이를 활용하는 법에 대해 학습할 수 있다.**
+## 레이어 상세 구조
 
-**데이터 형성과 상태관리, 구축 기술, 서비스 배포에 대해 학습할 수 있다.**
+### Application Layer
+- **Controllers**: REST API 엔드포인트 제공
+- **DTOs**: 데이터 전송 객체
+- **Request/Response**: API 입출력 모델
 
-**RESTful API를 적용한 프론트엔드&백엔드 간의 통신을 학습할 수 있다.**
+### Domain Layer
+- **Entities**: 도메인 핵심 객체
+- **Services**: 비즈니스 로직 처리
+- **Domain Events**: 도메인 이벤트 처리
 
-<br/>
+### Infrastructure Layer
+- **Repositories**: 데이터 액세스 레이어
+- **External APIs**: AI 서버 통신
+- **File Storage**: MinIO 연동
+- **Configuration**: 외부 시스템 설정
 
-## 👍 활용분야
+## 외부 시스템 연동
 
-**편의성**: 학생과 취업준비생이 문서 형식에 구애받지 않고 손쉽게 포트폴리오 제작이 가능하다.
+### AI 서버 통신
+Infrastructure 레이어에서 AI 서버와 REST API 통신을 수행합니다.
 
-**확장성**: 학생과 취업준비생 뿐만 아니라 기업 등의 고유 양식으로도 제공하여 다양한 분야에 활용할 수 있다.
+**주요 AI 기능:**
+- 반려동물 행동 분석
+- 추천 시스템 (친구, 아이템)
+- 자연어 처리 (커뮤니티 게시글)
+- 이미지 분석 (반려동물 사진)
 
-**수익성**: 사용자가 자신의 디자인을 판매해 수익을 창출할 수 있고 운영자는 판매 수수료를 통하여 수익 창출이 가능하다.
+### MinIO 스토리지
+- **사용처**: 반려동물 사진, 사용자 프로필 이미지, 룸 스크린샷
+- **구조**: 도메인별 버킷 분리
+- **보안**: 접근 권한 관리 및 이미지 압축
 
-**획일화된 양식**: 제출물을 하나의 디자인 양식으로 관리하여 자료를 분류 및 보관하는데 용이하다.
+## 프로젝트 구조
 
-<br/>
+```
+src/main/java/com/petnection/
+├── application/           # Application Layer
+│   ├── community/
+│   │   ├── controller/   # REST Controllers
+│   │   └── dto/          # Data Transfer Objects
+│   ├── friend/
+│   ├── myroom/
+│   ├── object/
+│   └── user/
+├── domain/               # Domain Layer
+│   ├── community/
+│   │   ├── entity/       # Domain Entities
+│   │   ├── service/      # Domain Services
+│   │   └── event/        # Domain Events
+│   ├── friend/
+│   ├── myroom/
+│   ├── object/
+│   └── user/
+└── infrastructure/       # Infrastructure Layer
+    ├── community/
+    │   └── repository/   # Data Repositories
+    ├── friend/
+    ├── myroom/
+    ├── object/
+    ├── user/
+    ├── ai/              # AI Server Integration
+    ├── storage/         # MinIO Integration
+    └── config/          # Configuration
+```
 
-## 🙋‍♂️ Developer
+## Docker 환경 구성
 
-|                                          Backend                                           |                                         Frontend                                          |                                         Frontend                                          |                                         Frontend                                         |             
-| :----------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: | 
-|  |  |  |  | 
-|                            [박정근](https://github.com/JGeun)                            |                           [유준호](https://github.com/yjh-1008)                           |                          [이재영](https://github.com/2jaebbang)                          |                         [이찬우](https://github.com/tigerlcw)                          |                           
+### docker-compose.yml
+```yaml
+version: '3.8'
+services:
+  petnection-backend:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+      - minio
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      
+  database:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: petnection
+      POSTGRES_USER: petnection
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      
+  minio:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+      - "9090:9090"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9090"
+    volumes:
+      - minio_data:/data
+
+volumes:
+  postgres_data:
+  minio_data:
+```
+
+## 개발 환경 설정
+
+### 1. 프로젝트 클론
+```bash
+git clone https://github.com/your-org/petnection-backend.git
+cd petnection-backend
+```
+
+### 2. Docker 환경 실행
+```bash
+docker-compose up -d
+```
+
+### 3. 애플리케이션 실행
+```bash
+./gradlew bootRun
+```
+
+### 4. API 테스트
+- **Swagger UI**: http://localhost:8080/swagger-ui.html
+- **MinIO Console**: http://localhost:9090
+
+## API 문서
+
+### 주요 엔드포인트
+
+#### Community API
+- `GET /api/community/posts` - 커뮤니티 게시글 목록
+- `POST /api/community/posts` - 게시글 작성
+- `POST /api/community/posts/{id}/like` - 좋아요
+
+#### Friend API
+- `GET /api/friends` - 친구 목록
+- `POST /api/friends/request` - 친구 요청
+- `PUT /api/friends/accept/{id}` - 친구 요청 수락
+
+#### MyRoom API
+- `GET /api/myroom` - 내 룸 정보
+- `PUT /api/myroom/decorate` - 룸 꾸미기
+- `POST /api/myroom/pet/activity` - 반려동물 활동 기록
+
+#### Object API
+- `GET /api/objects` - 아이템 목록
+- `POST /api/objects/purchase` - 아이템 구매
+- `GET /api/objects/inventory` - 보유 아이템
+
+#### User API
+- `GET /api/users/profile` - 사용자 프로필
+- `PUT /api/users/profile` - 프로필 수정
+- `POST /api/users/pets` - 반려동물 등록
+
+## 배포
+
+### 프로덕션 환경
+```bash
+# 이미지 빌드
+docker build -t petnection-backend:latest .
+
+# 프로덕션 실행
+docker-compose -f docker-compose.prod.yml up -d
+```
+
+### 환경 변수
+- `SPRING_PROFILES_ACTIVE`: 실행 환경 (dev, prod)
+- `DATABASE_URL`: 데이터베이스 연결 URL
+- `MINIO_ENDPOINT`: MinIO 서버 엔드포인트
+- `AI_SERVER_URL`: AI 서버 API URL
+
+## 개발 가이드라인
+
+### 코딩 컨벤션
+1. **패키지 구조**: 도메인별로 application/domain/infrastructure 분리
+2. **네이밍**: 도메인 용어 사용, 명확한 의미 전달
+3. **레이어 간 의존성**: 상위 레이어에서 하위 레이어로만 의존
+4. **외부 통신**: Infrastructure 레이어에서만 처리
+
+### 테스트 전략
+- **단위 테스트**: Domain Layer 중심
+- **통합 테스트**: API 엔드포인트
+- **외부 연동 테스트**: AI 서버, MinIO 연동
+
+## 기여하기
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 라이선스
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+🐾 **Happy coding with your virtual pets!** 🐾
