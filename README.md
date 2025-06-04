@@ -18,26 +18,28 @@
 <br/>
 
 ## ⭐ 주요 기능
-- **메인페이지** : 인기 포트폴리오, 전체 포트폴리오, 채용공고 제공
+- **커스터마이징** : 반려동물 사진을 기반으로 가상의 반려동물 만들기
 
 <img width="1666" alt="스크린샷 2022-10-11 오후 8 10 43" src="https://github.com/user-attachments/assets/a26e54c7-7c38-4628-b490-75ef09ebfb3f">
 
-- **양식 선택** : 새 양식, 기본 포트폴리오 양식 선택
+- **마이룸** : 나와 반려동물만의 교감공간
 
-<img width="1609" alt="스크린샷 2022-10-11 오후 8 13 01" src="https://user-images.githubusercontent.com/72256238/195093666-03728ad8-cb78-404a-b437-72fb72ea3260.png">
+<img width="1609" alt="스크린샷 2022-10-11 오후 8 13 01" src="https://github.com/user-attachments/assets/66d4391d-911e-430c-939a-1ef371ce2c67)">
 
-- **양식 미리보기** : 양식 미리보기 후 불러오기가 가능하며, 좋아요 기능 적용 
+- **커뮤니티 룸** : 다른 유저와 소통하고 맵을 커스텀하고, 나만의 포토앨범을 만들어봐요
 
-<img width="1438" alt="5" src="https://user-images.githubusercontent.com/72256238/195095686-6fd5d2e8-56f3-4ccc-91ed-c171c38e1192.png">
+<img width="1438" alt="5" src="https://github.com/user-attachments/assets/9147040a-6652-477a-add9-8a5ed08cdb56">
 
-- **양식 제작** : Drag&Drop 방식으로 이미지, 텍스트, 구분선, 표, 아이콘 등을 이용하여 포트폴리오 제작
+- **커뮤니티룸 컨텐츠** : 추억앨범,커뮤니티,굿즈 생성기기능
 
-<img width="1438" alt="6" src="https://user-images.githubusercontent.com/72256238/195093955-c3c9828b-4d9d-4884-bc56-f90e0b2cd643.png">
+<img width="500" alt="6" src="https://github.com/user-attachments/assets/5620f662-a386-42c0-beb5-8023475eb01d">
+<img width="500" alt="6" src="https://github.com/user-attachments/assets/ebe2fb51-2f37-4faf-bfb3-0ad99d21cd22">
+<img width="500" alt="6" src="https://github.com/user-attachments/assets/1acb7496-f14d-410e-a39b-234cfc361791">
 
-- **양식 PDF저장/생성** : 생성한 양식을 PDF형식으로 저장 가능. 태그, 공개 여부, 썸네일 등을 추가하여 사이트에 업로드
+- **PC/모바일** : 기기제한,다운로드없이 PC와 모바일로 접근가능한 소셜 네트워크 서비스
 
-<img width="1679" alt="스크린샷 2022-10-11 오후 8 14 25" src="https://user-images.githubusercontent.com/72256238/195094193-ce1e29de-c67a-4e86-a918-bbe733b23edb.png">
-
+<img width="800" alt="스크린샷 2022-10-11 오후 8 14 25" src="https://github.com/user-attachments/assets/f4a33d8b-cb94-47e9-999a-ba5d808610f1">
+<img width="800" alt="스크린샷 2022-10-11 오후 8 14 25" src="https://github.com/user-attachments/assets/8a3f588f-b728-4b60-83fe-391e41b4a5e0">
 
 
 - **양식 검색** : 제목이나 태그를 통해 포트폴리오 검색
